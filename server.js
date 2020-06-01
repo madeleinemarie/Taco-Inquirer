@@ -14,6 +14,8 @@ require('./config/passport');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const restaurantsRouter = require('./routes/restaurants');
+const tacosRouter = require('./routes/tacos');
+const reviewsRouter = require('./routes/reviews');
 
 var app = express();
 
@@ -35,10 +37,16 @@ app.use(methodOverride('_method'));
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(function (req, res, next) {
+  res.locals.user = req.user;
+  next();
+});
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/restaurants', restaurantsRouter)
+app.use('/restaurants', restaurantsRouter);
+app.use('/', tacosRouter);
+app.use('/', reviewsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

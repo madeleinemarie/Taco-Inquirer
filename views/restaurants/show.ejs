@@ -1,0 +1,12 @@
+<%- include('../partials/header') %>
+    <a href='/restaurants'>Back to All Restaurants</a>
+    <h1><%= restaurant.name %></h1>
+    <h2><%= restaurant.neighborhood %></h2>
+    <h3>Tacos:</h3>
+    <% restaurant.tacos.forEach(function(t) { %>
+          <p><%= t.name %></p>
+          <p><%= t.description %></p>
+        <% }); %>
+    <a href='/restaurants/<%= restaurant._id %>/tacos/new'>Add Taco</a>
+</body>
+</html>

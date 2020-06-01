@@ -3,6 +3,7 @@ const User = require('../models/user');
 
 module.exports = {
     index,
+    show,
     new: newRestaurant,
     create
 }
@@ -11,6 +12,12 @@ function index(req, res){
     Restaurant.find({}, function(err, restaurants) {
         res.render('restaurants', { restaurants });
     })
+}
+
+function show(req, res) {
+    Restaurant.findById(req.params.id, function(err, restaurant) { 
+        res.render('restaurants/show', { restaurant });
+      });
 }
 
 function newRestaurant(req, res) {
@@ -24,3 +31,4 @@ function create(req, res){
         res.redirect('/restaurants');
     });
 }
+

@@ -1,20 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' href='/stylesheets/style.css'/>
-    <title>Document</title>
-</head>
-<body>
-    <nav>
-        <a href='/'>Taco Inquirer</a>
-    </nav>
+<%- include('../partials/header') %>
     <a href='restaurants/new'>Add a Restaurant</a>
 <h1>List of Restaurants:</h1>
     <% restaurants.forEach(function(r) { %>
       <p><%= r.name %></p>
       <p><%= r.neighborhood %></p>
+      <a href='/restaurants/<%= r._id %>'>See Tacos</a>
     <% }); %>
   </body>
 </html>

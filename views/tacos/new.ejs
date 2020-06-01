@@ -1,0 +1,11 @@
+<%- include('../partials/header') %>
+    <h1>Add Taco</h1>
+    <form action="/restaurants/<%= restaurantId %>/tacos" method="POST">
+        <label>Taco Name:</label>
+            <input type="text" name="name">
+        <label>Taco Description:</label>
+            <input type="text" name="description">
+        <input type="submit" value="Add">
+    </form>
+</body>
+</html>
