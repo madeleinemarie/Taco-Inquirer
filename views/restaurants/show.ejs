@@ -4,8 +4,15 @@
     <h2><%= restaurant.neighborhood %></h2>
     <h3>Tacos:</h3>
     <% restaurant.tacos.forEach(function(t) { %>
-          <p><%= t.name %></p>
-          <p><%= t.description %></p>
+         <% console.log(t) %>
+          <p>Name: <%= t.name %></p>
+          <p>Description: <%= t.description %></p>
+          <% if (t.reviews.length) { %>
+            <% t.reviews.forEach(function(r) { %>
+                <p>Reviews: <%= r.comment %></p>
+            <% }) %>
+         <% } %>
+          <a href='/restaurants/<%= restaurant._id %>/tacos/<%= t._id %>/reviews/new'>Add Review</a>
         <% }); %>
     <a href='/restaurants/<%= restaurant._id %>/tacos/new'>Add Taco</a>
 </body>

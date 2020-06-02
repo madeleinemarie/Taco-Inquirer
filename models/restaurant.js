@@ -1,15 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-
-const tacoSchema = new Schema({
-    name: {
-        type: String,
-        required: true
-    },
-    description: {
-        type: String
-    }
-})
+const reviewSchema = require('./review')
 
 const restaurantSchema = new Schema({
     name: {
@@ -19,7 +10,7 @@ const restaurantSchema = new Schema({
     neighborhood: {
         type: String
     },
-    tacos: [tacoSchema]
+    tacos: [{type: Schema.Types.ObjectId, ref: 'Taco'}]
 });
 
 module.exports = mongoose.model('Restaurant', restaurantSchema);

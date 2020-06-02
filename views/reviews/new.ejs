@@ -1,0 +1,9 @@
+<%- include('../partials/header') %>
+    <h1>Write a Review</h1>
+    <form action="/restaurants/<%= restaurantId %>/tacos/<%= tacoId %>/reviews" method="POST">
+        <label>Review:</label>
+            <input type="text" name="comment">
+        <input type="submit" value="Post Review">
+    </form>
+</body>
+</html>

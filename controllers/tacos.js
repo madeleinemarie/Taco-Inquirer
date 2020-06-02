@@ -1,4 +1,5 @@
 const Restaurant = require('../models/restaurant');
+const Taco = require('../models/taco');
 
 module.exports = {
     new: newTaco,
@@ -10,10 +11,20 @@ function newTaco(req, res) {
 }
 
 function create(req, res) {
-    Restaurant.findById(req.params.id, function(err, restaurant) {
-        restaurant.tacos.push(req.body);
-        restaurant.save(function(err) {
-            res.redirect(`/restaurants/${restaurant._id}`);
-        });
-    });
+    const taco = new Taco(req.body);
+    taco.save(function (err, result){
+        if (err) {
+            return console.error(err);
+            res.redirect('/restaurants');
+        } else {
+            Restaurant.findByIdAndUpdate(req.params.id, {$push: {'tacos': result}}, function(err) {
+                if (err) {
+                    console.log(err);
+                    res.redirect(`/restaurants/${req.params.id}`);
+                } else {
+                     res.redirect(`/restaurants/${req.params.id}`);
+                }
+            }); 
+        }
+    }); 
 }

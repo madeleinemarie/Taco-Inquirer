@@ -15,9 +15,19 @@ function index(req, res){
 }
 
 function show(req, res) {
-    Restaurant.findById(req.params.id, function(err, restaurant) { 
-        res.render('restaurants/show', { restaurant });
-      });
+    Restaurant.findById(req.params.id)  
+    .populate({
+        path: 'tacos',
+        populate: {path: 'reviews'}
+    }).
+    exec(function (err, restaurant) {        
+        if (err) {
+            console.log(err);
+            res.render('restaurants/show');
+        } else {
+            res.render('restaurants/show', { restaurant });
+        }
+    })
 }
 
 function newRestaurant(req, res) {
