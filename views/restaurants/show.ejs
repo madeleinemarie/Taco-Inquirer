@@ -9,14 +9,19 @@
           <p>Description: <%= t.description %></p>
           <p>******************</p>
           <a href='/restaurants/<%= restaurant._id %>/tacos/<%= t._id %>/reviews/new'>Add Review</a>
-          <h2>
           <% if (t.reviews.length) { %>
             <% t.reviews.forEach(function(r) { %>
                 <p>Review: <%= r.comment %></p>
                 <%if (r.author) { %>
                     <p>Written By: <%= r.author.name %></p>
+                    <% if (r.author._id.equals(user && user._id)) { %>
+                        <form action="/restaurants/<%= restaurant._id %>/tacos/<%= t._id %>/reviews/<%= r._id %>?_method=DELETE" method="POST"><button type="submit" >X</button></form>
+                    <% } %>
                 <% } %>
                 <p><%= r.createdAt %></p>
+                
+               
+                    
                 <p>-----------------------------------</p>
             <% }) %>
          <% } %>

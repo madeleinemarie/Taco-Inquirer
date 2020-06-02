@@ -40,3 +40,13 @@ function create(req, res) {
    }); 
 }
 
+function deleteReview(req, res) {
+    Review.findByIdAndDelete(req.params.reviewid, function (err) {
+        if (err) {
+            console.log(err);
+            res.redirect(`/restaurants/${req.params.id}`);
+        } else {
+            res.redirect(`/restaurants/${req.params.id}`);
+        }
+    });
+}
