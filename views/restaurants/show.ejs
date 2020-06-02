@@ -7,12 +7,19 @@
          <% console.log(t) %>
           <p>Name: <%= t.name %></p>
           <p>Description: <%= t.description %></p>
+          <p>******************</p>
+          <a href='/restaurants/<%= restaurant._id %>/tacos/<%= t._id %>/reviews/new'>Add Review</a>
+          <h2>
           <% if (t.reviews.length) { %>
             <% t.reviews.forEach(function(r) { %>
-                <p>Reviews: <%= r.comment %></p>
+                <p>Review: <%= r.comment %></p>
+                <%if (r.author) { %>
+                    <p>Written By: <%= r.author.name %></p>
+                <% } %>
+                <p><%= r.createdAt %></p>
+                <p>-----------------------------------</p>
             <% }) %>
          <% } %>
-          <a href='/restaurants/<%= restaurant._id %>/tacos/<%= t._id %>/reviews/new'>Add Review</a>
         <% }); %>
     <a href='/restaurants/<%= restaurant._id %>/tacos/new'>Add Taco</a>
 </body>

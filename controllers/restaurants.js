@@ -18,13 +18,18 @@ function show(req, res) {
     Restaurant.findById(req.params.id)  
     .populate({
         path: 'tacos',
-        populate: {path: 'reviews'}
+        populate: {
+            path: 'reviews', 
+            model: 'Review',
+            populate: {path: 'author', model: 'User'}
+        }
     }).
     exec(function (err, restaurant) {        
         if (err) {
-            console.log(err);
+            console.log("error:" + err);
             res.render('restaurants/show');
         } else {
+            console.log("restaurant:" + restaurant);
             res.render('restaurants/show', { restaurant });
         }
     })

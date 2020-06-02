@@ -4,7 +4,8 @@ const Taco = require('../models/taco');
 
 module.exports = {
    new: newReview,
-   create
+   create,
+   delete: deleteReview
 }
 
 function newReview(req, res){
@@ -13,18 +14,29 @@ function newReview(req, res){
 
 function create(req, res) {
     const review = new Review(req.body);
+    review.author = req.user._id;
     review.save(function (err){
         if (err) {
             console.log(err);
             return res.redirect('/restaurants');
         }
     })
-   Taco.findByIdAndUpdate(req.params.tacoid, {reviews: review}, function(err) {
+   Taco.findByIdAndUpdate(req.params.tacoid, {$push: {'reviews': review}}, function(err, taco) {
        if (err) {
            console.log(err);
            res.redirect(`/restaurants/${req.params.id}`);
        } else {
-            res.redirect(`/restaurants/${req.params.id}`);
+            Review.find({})
+            .populate('author')
+            .exec(function (err, reviews) {
+                if (err) {
+                    console.log(err);
+                    res.redirect(`/restaurants/${req.params.id}`);
+                } else {
+                    res.redirect(`/restaurants/${req.params.id}`);
+                }
+            })
        }
    }); 
 }
+
