@@ -44,6 +44,9 @@ function create(req, res) {
 
 function edit(req, res) {
     Review.findById(req.params.reviewid, function (err, review) {
+        if (!review.author.equals(req.user._id)) {
+            res.redirect(`/restaurants/${req.params.id}`);
+        }
         if (err) {
             console.log(err);
             res.redirect(`/restaurants/${req.params.id}`);
