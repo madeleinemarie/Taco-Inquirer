@@ -5,7 +5,9 @@ const Taco = require('../models/taco');
 module.exports = {
    new: newReview,
    create,
-   delete: deleteReview
+   edit,
+   update,
+   delete: deleteReview 
 }
 
 function newReview(req, res){
@@ -38,6 +40,21 @@ function create(req, res) {
             })
        }
    }); 
+}
+
+function edit(req, res){
+    res.render(`reviews/edit`, {restaurantId: req.params.id, tacoId: req.params.tacoid, reviewId: req.params.reviewid });
+}
+
+function update(req, res){
+    Review.findByIdAndUpdate(req.params.reviewid, {comment: req.body.comment}, function(err) {
+        if (err) {
+            console.log(err);
+            res.redirect(`/restaurants/${req.params.id}`);
+        } else {
+            res.redirect(`/restaurants/${req.params.id}`);
+        }
+    })
 }
 
 function deleteReview(req, res) {
