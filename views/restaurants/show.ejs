@@ -8,25 +8,25 @@
           <p>Name: <%= t.name %></p>
           <p>Description: <%= t.description %></p>
           <p>******************</p>
-          <a href='/restaurants/<%= restaurant._id %>/tacos/<%= t._id %>/reviews/new'>Add Review</a>
           <% if (t.reviews.length) { %>
+            <a href='/restaurants/<%= restaurant._id %>/tacos/<%= t._id %>/reviews/new'>Add Review</a>
             <% t.reviews.forEach(function(r) { %>
                 <%if (r.author) { %>
+                    <p>Review: <%= r.comment %></p>
                     <p><%= r.author.name %> on <%= r.createdAt.toLocaleDateString() %></p>
                     <% if (r.author._id.equals(user && user._id)) { %>
                         <form action="/restaurants/<%= restaurant._id %>/tacos/<%= t._id %>/reviews/<%= r._id %>?_method=DELETE" method="POST"><button type="submit" >X</button></form>
                         <a href="/restaurants/<%= restaurant._id %>/tacos/<%= t._id %>/reviews/<%= r._id %>/edit">Edit</a>
                     <% } %>
                 <% } %>
-                <p>Review: <%= r.comment %></p>
                 
-                <p></p>
-                
-               
-                    
                 <p>-----------------------------------</p>
             <% }) %>
-         <% } %>
+         <% } else { %>
+            <a href='/restaurants/<%= restaurant._id %>/tacos/<%= t._id %>/reviews/new'>Add Review</a>
+             <p>No Reviews yet<p>
+            
+            <% } %>
         <% }); %>
     <a href='/restaurants/<%= restaurant._id %>/tacos/new'>Add Taco</a>
 </body>
