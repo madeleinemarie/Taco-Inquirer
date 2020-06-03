@@ -42,9 +42,18 @@ function create(req, res) {
    }); 
 }
 
-function edit(req, res){
-    res.render(`reviews/edit`, {restaurantId: req.params.id, tacoId: req.params.tacoid, reviewId: req.params.reviewid });
+function edit(req, res) {
+    Review.findById(req.params.reviewid, function (err, review) {
+        if (err) {
+            console.log(err);
+            res.redirect(`/restaurants/${req.params.id}`);
+        } else {
+            let textValue = review.comment;
+            res.render(`reviews/edit`, {restaurantId: req.params.id, tacoId: req.params.tacoid, reviewId: req.params.reviewid, preFill: textValue });
+        }
+    })
 }
+   
 
 function update(req, res){
     Review.findByIdAndUpdate(req.params.reviewid, {comment: req.body.comment}, function(err) {
