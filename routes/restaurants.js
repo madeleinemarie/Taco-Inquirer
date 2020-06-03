@@ -3,8 +3,13 @@ const router = express.Router();
 const restaurantsCtrl = require('../controllers/restaurants');
 
 router.get('/', restaurantsCtrl.index);
-router.get('/new', restaurantsCtrl.new);
+router.get('/new', isLoggedIn, restaurantsCtrl.new);
 router.get('/:id', restaurantsCtrl.show);
-router.post('/', restaurantsCtrl.create);
+router.post('/', isLoggedIn, restaurantsCtrl.create);
+
+function isLoggedIn(req, res, next) {
+    if ( req.isAuthenticated() ) return next();
+    res.redirect('/auth/google');
+}
 
 module.exports = router;
