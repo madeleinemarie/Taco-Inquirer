@@ -1,10 +1,31 @@
 <%- include('../partials/header') %>
-    <a href='restaurants/new'>Add a Restaurant</a>
-<h1>List of Restaurants:</h1>
+  <a href='restaurants/new'>Add a Restaurant</a>
+  <h1>List of Restaurants:</h1>
+  <div class='container'>
+    <ul>
     <% restaurants.forEach(function(r) { %>
-      <p><%= r.name %></p>
-      <p><%= r.neighborhood %></p>
-      <a href='/restaurants/<%= r._id %>'>See Tacos</a>
+      <li class='restaurant-row list-group list-group-flush'>
+        <h2><%= r.name %></h2>
+        <h4><%= r.neighborhood %></h4>
+        <% if (r.tacos.length > 1) { %>
+          <div class='restaurant-details'>
+            <p><%= r.tacos.length %> reviewed tacos</p>
+            <a href='/restaurants/<%= r._id %>'>See Tacos</a>
+          </div>
+        <% } else if (r.tacos.length == 0) { %>
+          <div class='restaurant-details'>
+            <p>No tacos yet -- be the first to add one!</p>
+            <a href='/restaurants/<%= r._id %>/tacos/new'>Add Taco</a>
+          </div>
+         <% } else { %>
+          <div class='restaurant-details'>
+            <p>1 reviewed taco</p>
+            <a href='/restaurants/<%= r._id %>'>See Tacos</a>
+          </div>
+        <% } %>
+      </li>
     <% }); %>
+  </ul>
+  </div>
   </body>
 </html>
