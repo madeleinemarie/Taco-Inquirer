@@ -51,8 +51,9 @@ function edit(req, res) {
             console.log(err);
             res.redirect(`/restaurants/${req.params.id}`);
         } else {
-            let textValue = review.comment;
-            res.render(`reviews/edit`, {restaurantId: req.params.id, tacoId: req.params.tacoid, reviewId: req.params.reviewid, preFill: textValue });
+            //let textValue = review.comment;
+            res.render(`reviews/edit`, { restaurantId: req.params.id, tacoId: req.params.tacoid, reviewId: req.params.reviewid, review });
+            //
         }
     })
 }
