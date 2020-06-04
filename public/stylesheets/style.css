@@ -14,7 +14,7 @@ a {
 
 .restaurant-row > h2, h4, p, a {
   display: inline;
-}
+} 
 
 .restaurant-row > h4 {
   font-size: 1.2em; 
@@ -24,4 +24,40 @@ a {
 
 .restaurant-details {
   float: right;
+}
+
+.taco-img {
+  height: 15em;
+  width: 15em;
+  object-fit: cover;
+  display: block;
+  border-radius: 0.5em;
+}
+
+/* .taco-header > img {
+  display: inline;
+}*/
+
+.taco-wrapper {
+  margin-bottom: 2em;
+}
+
+.taco-header { 
+  display: flex;
+  margin-bottom: 1em;
+} 
+
+.taco-info {
+  padding: 2em;
+}
+
+.review-box {
+  background-color: #F0F8FF;
+  padding: 1em;
+  margin: 1em 0em;
+  border-radius: 0.5em;
+}
+
+.inline-button {
+  display: inline;
 }
