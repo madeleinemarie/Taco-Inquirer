@@ -7,9 +7,11 @@
             Back to Restaurants
         </a>
         <div class='restaurant-header-info container'>
-            <h1><%= restaurant.name %></h1>
-            <h3><%= restaurant.neighborhood %></h2>
-            <a href='/restaurants/<%= restaurant._id %>/tacos/new' class='btn btn-info'>Add Taco</a>
+                <h1><%= restaurant.name %></h1>
+                <h4><%= restaurant.neighborhood %></h4>
+                <form action='/restaurants/<%= restaurant._id %>/tacos/new' action='GET'>
+                <button type="submit" class='add-taco-btn'>Add Taco</button></form>
+            <!-- <a href='/restaurants/<%= restaurant._id %>/tacos/new' class='add-taco-btn'>Add Taco</a> -->
         </div>  
     </div>
     <div class='container'>
@@ -19,8 +21,8 @@
             <div class='taco-header'>
                 <img src='/images/tacoplaceholder.jpg' class='taco-img'>
                 <div class='taco-info'>
-                    <h3>Name: <%= t.name %></h3>
-                    <h4>Description: <%= t.description %></h4>
+                    <h3><%= t.name %></h3>
+                    <h4><%= t.description %></h4>
                 </div>
             </div>
                 <% if (t.reviews.length) { %>
@@ -30,7 +32,7 @@
                         <div class='review-box'>
                         <%if (r.author) { %>
                             <h5><b><%= r.author.name %></b> on <%= r.createdAt.toLocaleDateString()%>:</h5>
-                            <h4>" <%= r.comment %> "</h4>
+                            <h4><%= r.comment %></h4>
                             <br>
                             <% if (r.author._id.equals(user && user._id)) { %>
                                 <form action="/restaurants/<%= restaurant._id %>/tacos/<%= t._id %>/reviews/<%= r._id %>?_method=DELETE" method="POST" class='inline-button'><button type="submit" class='svg-btn'><img src='/images/trash.svg'></button></form>
