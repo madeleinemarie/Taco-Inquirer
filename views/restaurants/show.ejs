@@ -11,7 +11,6 @@
                 <h4><%= restaurant.neighborhood %></h4>
                 <form action='/restaurants/<%= restaurant._id %>/tacos/new' action='GET'>
                 <button type="submit" class='add-taco-btn'>Add Taco</button></form>
-            <!-- <a href='/restaurants/<%= restaurant._id %>/tacos/new' class='add-taco-btn'>Add Taco</a> -->
         </div>  
     </div>
     <div class='container'>
@@ -26,8 +25,8 @@
                 </div>
             </div>
                 <% if (t.reviews.length) { %>
-                    <h4>Reviews:</h4>
-                    <a href='/restaurants/<%= restaurant._id %>/tacos/<%= t._id %>/reviews/new'>Add Review</a>
+                    <h4 class='reviews-label'>Reviews:</h4>
+                    <a class='add-review' href='/restaurants/<%= restaurant._id %>/tacos/<%= t._id %>/reviews/new'>Add Review</a>
                     <% t.reviews.forEach(function(r) { %>
                         <div class='review-box'>
                         <%if (r.author) { %>
@@ -42,13 +41,15 @@
                         </div>
                     <% }) %>
                 <% } else { %>
-                <h4>No Reviews yet<h4>
-                <a href='/restaurants/<%= restaurant._id %>/tacos/<%= t._id %>/reviews/new'>Add Review</a>
+                <h4 class='reviews-label'>No Reviews yet<h4>
+                <a class='add-review' href='/restaurants/<%= restaurant._id %>/tacos/<%= t._id %>/reviews/new'>Add Review</a>
                 <% } %>
 
         </div>    
     <% }); %>
     <div class='taco-wrapper col-sm-6'></div>
     </div>
+
+
 </body>
 </html>
