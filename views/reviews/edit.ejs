@@ -2,7 +2,7 @@
     <h1>Edit Review</h1>
     <form action="/restaurants/<%= restaurantId %>/tacos/<%= tacoId %>/reviews/<%= reviewId %>?_method=PUT" method="POST">
         <label>Review:</label>
-            <textarea name='comment'><%= preFill %></textarea>
+            <textarea name='comment'><%= review.comment %></textarea>
         <input type="submit" value="Update Review">
     </form>
 </body>
