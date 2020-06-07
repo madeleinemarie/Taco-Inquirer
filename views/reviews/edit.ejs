@@ -1,9 +1,11 @@
 <%- include('../partials/header') %>
-    <h1>Edit Review</h1>
-    <form action="/restaurants/<%= restaurantId %>/tacos/<%= tacoId %>/reviews/<%= reviewId %>?_method=PUT" method="POST">
-        <label>Review:</label>
-            <textarea name='comment'><%= review.comment %></textarea>
-        <input type="submit" value="Update Review">
-    </form>
-</body>
-</html>
+    <div class="container edit-form">
+        <h1>Edit Review</h1>
+        <form action="/restaurants/<%= restaurantId %>/tacos/<%= tacoId %>/reviews/<%= reviewId %>?_method=PUT" method="POST">
+            <div class='form-group'>
+                <textarea class='form-control' rows='4' name='comment'><%= review.comment %></textarea>
+            </div>
+            <input type="submit" class='btn btn-blue' value="Update Review">
+        </form>
+    </div>
+<%- include('../partials/footer') %>

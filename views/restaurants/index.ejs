@@ -1,17 +1,17 @@
 <%- include('../partials/header') %>
   
-    <div class='index-banner-bg'>
+  <div class='index-banner-bg'>
       <div class='index-banner container'>
         <div class='index-banner-info col-sm-8'>
-          <img id='taco-icon' src='/images/taco-icon.svg'>
-          <h4>Lorem ipsum fdsjkafldjsafkldsjl j kfsjf jfkds jl lkjkljkl ljkljlf dsjkfdljs akljfdkls jakl jkfdlsjkfldsja jkljljds aklfj</h4>
+          <img id='info-img' src='/images/review.svg'>
+          <h4>No more asking "what's good here?" -- Taco Inquirer is a user-driven guide to the best tacos in San Diego. Select a restaurant below to see reviews, or log in with Google to add your own.</h4>
         </div>
         <div class='index-banner-add col-sm-4'>
-          <h3>Don't see your favorite taco place here?<br>Share it with us!</h3>
-          <a href='restaurants/new'>Add a Restaurant</a>
+          <h3 id='index-banner-add-msg'>Don't see your favorite taco place here?<br><b>Share it with us!</b></h3>
+          <a href='restaurants/new' class='add-restaurant-btn'><b>Add a Restaurant</b></a>
         </div>
       </div>
-    </div>
+  </div>
   <div class='container'>
     <ul class='restaurant-list'>
     <% restaurants.forEach(function(r) { %>
@@ -38,5 +38,4 @@
     <% }); %>
   </ul>
   </div>
-  </body>
-</html>
+<%- include('../partials/footer') %>

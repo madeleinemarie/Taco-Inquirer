@@ -13,10 +13,10 @@
                 <button type="submit" class='add-taco-btn'>Add Taco</button></form>
         </div>  
     </div>
-    <div class='container'>
+    <div class='container taco-columns'>
     <% restaurant.tacos.forEach(function(t) { %>
         <% console.log(t) %>
-        <div class='taco-wrapper col-sm-6 '>
+        <div class='taco-wrapper'>
             <div class='taco-header'>
                 <img src='/images/tacoplaceholder.jpg' class='taco-img'>
                 <div class='taco-info'>
@@ -34,8 +34,8 @@
                             <h4><%= r.comment %></h4>
                             <br>
                             <% if (r.author._id.equals(user && user._id)) { %>
-                                <form action="/restaurants/<%= restaurant._id %>/tacos/<%= t._id %>/reviews/<%= r._id %>?_method=DELETE" method="POST" class='inline-button'><button type="submit" class='svg-btn'><img src='/images/trash.svg'></button></form>
-                                <form action="/restaurants/<%= restaurant._id %>/tacos/<%= t._id %>/reviews/<%= r._id %>/edit" method="GET"  class='inline-button'><button type="submit" class='svg-btn'><img src='/images/pencil.svg'></button></form>
+                                <form action="/restaurants/<%= restaurant._id %>/tacos/<%= t._id %>/reviews/<%= r._id %>?_method=DELETE" method="POST" class='inline-button delete-button'><button type="submit" class='svg-btn'><img src='/images/trash.svg'></button></form>
+                                <form action="/restaurants/<%= restaurant._id %>/tacos/<%= t._id %>/reviews/<%= r._id %>/edit" method="GET"  class='inline-button edit-button'><button type="submit" class='svg-btn'><img src='/images/pencil.svg'></button></form>
                             <% } %>
                         <% } %>
                         </div>
@@ -44,12 +44,9 @@
                 <h4 class='reviews-label'>No Reviews yet<h4>
                 <a class='add-review' href='/restaurants/<%= restaurant._id %>/tacos/<%= t._id %>/reviews/new'>Add Review</a>
                 <% } %>
+                <hr>
 
         </div>    
     <% }); %>
-    <div class='taco-wrapper col-sm-6'></div>
     </div>
-
-
-</body>
-</html>
+<%- include('../partials/footer') %>
