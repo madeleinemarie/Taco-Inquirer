@@ -1,6 +1,6 @@
 :root {
   --color-A: #FBE8A6;
-  --color-B: #F4976C;
+  --color-B: #FBC23B;
   --color-C: #303C6C;
   --color-D: #B4DFE5;
   --color-E: #E8EBF7;
@@ -32,15 +32,19 @@ nav > li > a {
   font-weight: normal;
 }
 
+nav > li > h4 {
+  vertical-align: text-bottom;
+  padding-right: 1em;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+}
+
 nav > a {
   color: white;
   font-family: 'Poppins', sans-serif;
 }
 
-.bi-arrow-left-circle-fill {
-  vertical-align: -10%;
-  margin-left: 2em;
-}
+
 
 
 /*********RESTAURANT INDEX**********/
@@ -65,24 +69,54 @@ nav > a {
 
 .index-banner-add {
   background: white;
-  padding: 2em;
+  padding: 1em 2em 2em 2em;
   height: 15em;
   text-align: center;
-  border-radius: 0.3em;
+  border-radius: 0.4em;
   margin-left: 2em;
+}
+
+#index-banner-add-msg {
+  margin-bottom: 1em;
+}
+
+.add-restaurant-btn {
+  background-color: var(--color-B);
+  border: 0.2em solid var(--color-B);
+  border-radius: 0.3em;
+  padding: 0.7em;
+  text-decoration: none;
+  color: white;
+  font-size: 1.2em;
+}
+
+.add-restaurant-btn:hover {
+  background-color: var(--color-B);
+  border: 0.2em solid var(--color-B);
+  background: white;
+  color: var(--color-B);
+  text-decoration: none;
+
 }
 
 .index-banner-info {
   background: white;
-  border-radius: 0.3em;
-  padding: 2em;
+  color: var(--color-C);
+  font-weight: bold;
+  border-radius: 0.4em;
+  padding: 4.5em;
   height: 15em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-#taco-icon {
-  max-width: 5em;
-  max-height: 5em;
-  transform: rotate(-20deg);
+#info-img {
+  max-width: 8em;
+  max-height: 8em;
+  opacity: 0.8;
+  margin-right: 2em;
+
 }
 
 .restaurant-list {
@@ -134,6 +168,10 @@ nav > a {
 
 /*******RESTAURANT SHOW PAGE*******/
 
+.bi-arrow-left-circle-fill {
+  vertical-align: -10%;
+  margin-left: 2em;
+}
 
 .restaurant-header {
   width: 100%;
@@ -156,12 +194,6 @@ nav > a {
   border-radius: 0.3em;
 }
 
-.restaurant-header-info > h4{
-
-  padding-bottom: 2em;
-
-}
-
 .add-taco-btn {
   background-color: var(--color-C);
   border: 0.2em solid var(--color-C);
@@ -179,8 +211,13 @@ nav > a {
   color: var(--color-C)
 }
 
+.taco-columns {
+  column-count: 2;
+}
+
 .taco-wrapper {
   margin-bottom: 2em;
+  break-inside: avoid;
 }
 
 .taco-header { 
@@ -203,24 +240,141 @@ nav > a {
 .review-box {
   background-color: var(--color-E);
   padding: 1em;
-  margin: 1em 0em;
-  border-radius: 0.5em;
+  margin-top: 1em;
+  border-radius: 0.3em;
+}
+
+.reviews-label {
+  vertical-align: -0.5em;
+}
+
+.add-review {
+  float: right;
+  background-color: var(--color-B);
+  border: 0.2em solid var(--color-B);
+  border-radius: 0.3em;
+  padding: 0.2em 1.1em;
+  text-decoration: none;
+  color: white;
+}
+
+.add-review:hover {
+  color: var(--color-B);
+  background-color: white;
+  border: 0.2em solid var(--color-B);
+  font-weight: normal;
+  text-decoration: none;
 }
 
 .inline-button {
   display: inline;
+  border: none;
+}
+
+.svg-btn {
+  border: none;
+  background-color: white;
+  padding: 0.3em 0.5em 0.4em 0.5em;
+  border-radius: 0.3em;
+  margin: 0.5em 0.2em 0.2em 0.2em;
 }
 
 #back-button {
   text-align: left;
   color: white;
-  font-size: 1.5em;
+  font-size: 1.1em;
   background-color: var(--color-C);
   border-radius: 0.3em;
   padding: 0.5em;
-  padding-right: 2.5em;
+  padding-right: 2em;
+  position: fixed;
 }
 
 #back-button:hover {
   text-decoration: none;
 }
+
+/******NEW FORM*******/
+
+.new-form {
+  margin-top: 2em;
+  padding: 2em;
+  max-width: 40em;
+  background-color: var(--color-E);
+  border-radius: 0.3em;
+}
+
+.new-form > h1 {
+  text-align: center;
+}
+
+.btn-blue {
+  background-color: var(--color-C);
+  color: white;
+  float: right;
+  padding: 0.5em 2em;
+  border: 0.2em solid var(--color-C)
+}
+
+.btn-blue:hover {
+  background-color: var(--color-E);
+  color: var(--color-C);
+  float: right;
+  padding: 0.5em 2em;
+}
+
+/******EDIT FORM*******/
+
+.edit-form {
+  margin-top: 2em;
+  padding: 2em;
+  max-width: 40em;
+  background-color: var(--color-E);
+  border-radius: 0.3em;
+}
+
+.edit-form > h1 {
+  text-align: center;
+}
+
+.page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+.content-wrap {
+  padding-bottom: 7em;    /* Footer height */
+}
+
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 4em;
+    text-align: center;
+    background-color: var(--color-C);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3em;
+    color: white;
+}
+
+footer > li {
+  list-style: none;
+  vertical-align: baseline;
+  margin: 0em 3em;
+}
+
+footer > li > a{
+  vertical-align: baseline;
+  text-decoration: none;
+  color: lightgoldenrodyellow;
+}
+
+footer > li > a:hover{
+  text-decoration: none;
+  color: white;
+}
+
