@@ -1,8 +1,19 @@
 <%- include('../partials/header') %>
-  <a href='restaurants/new'>Add a Restaurant</a>
-  <h1>List of Restaurants:</h1>
+  
+    <div class='index-banner-bg'>
+      <div class='index-banner container'>
+        <div class='index-banner-info col-sm-8'>
+          <img id='taco-icon' src='/images/taco-icon.svg'>
+          <h4>Lorem ipsum fdsjkafldjsafkldsjl j kfsjf jfkds jl lkjkljkl ljkljlf dsjkfdljs akljfdkls jakl jkfdlsjkfldsja jkljljds aklfj</h4>
+        </div>
+        <div class='index-banner-add col-sm-4'>
+          <h3>Don't see your favorite taco place here?<br>Share it with us!</h3>
+          <a href='restaurants/new'>Add a Restaurant</a>
+        </div>
+      </div>
+    </div>
   <div class='container'>
-    <ul>
+    <ul class='restaurant-list'>
     <% restaurants.forEach(function(r) { %>
       <li class='restaurant-row list-group list-group-flush'>
         <h2><%= r.name %></h2>
@@ -10,17 +21,17 @@
         <% if (r.tacos.length > 1) { %>
           <div class='restaurant-details'>
             <p><%= r.tacos.length %> reviewed tacos</p>
-            <a href='/restaurants/<%= r._id %>'>See Tacos</a>
+            <a class='see-tacos-btn' href='/restaurants/<%= r._id %>'>See Tacos</a>
           </div>
         <% } else if (r.tacos.length == 0) { %>
           <div class='restaurant-details'>
             <p>No tacos yet -- be the first to add one!</p>
-            <a href='/restaurants/<%= r._id %>/tacos/new'>Add Taco</a>
+            <a class='see-tacos-btn' href='/restaurants/<%= r._id %>/tacos/new'>Add Taco</a>
           </div>
          <% } else { %>
           <div class='restaurant-details'>
             <p>1 reviewed taco</p>
-            <a href='/restaurants/<%= r._id %>'>See Tacos</a>
+            <a class='see-tacos-btn' href='/restaurants/<%= r._id %>'>See Tacos</a>
           </div>
         <% } %>
       </li>
