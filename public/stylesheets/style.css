@@ -44,8 +44,14 @@ nav > a {
   font-family: 'Poppins', sans-serif;
 }
 
+.search-bar-form {
+  display: inline;
+}
 
-
+.search-bar {
+  vertical-align: -0.2em;
+  margin-right: 1em;
+}
 
 /*********RESTAURANT INDEX**********/
 
@@ -136,7 +142,7 @@ nav > a {
 .restaurant-row > h4 {
   font-size: 1.2em; 
   vertical-align: super;
-  padding-left: 2em;
+  padding-left: 1.5em;
 }
 
 .restaurant-details {
@@ -216,8 +222,8 @@ nav > a {
 }
 
 .taco-wrapper {
-  margin-bottom: 2em;
   break-inside: avoid;
+  margin: 0em 1.5em 2em 1.5em;
 }
 
 .taco-header { 
@@ -344,6 +350,51 @@ nav > a {
 
 .content-wrap {
   padding-bottom: 7em;    /* Footer height */
+}
+
+/******NOT FOUND SEARCH PAGE*******/
+
+.not-found-card {
+  text-align: center;
+  max-width: 50em;
+  margin-top: 2em;
+  padding: 2em 2em 4em 2em;
+  background-color: var(--color-E);
+  border-radius: 0.3em;
+}
+
+.not-found-add {
+  margin-top: 4em;
+  background-color: var(--color-C);
+  border: 0.2em solid var(--color-C);
+  border-radius: 0.3em;
+  padding: 0.7em 1.2em 0.7em 1.2em;
+  text-decoration: none;
+  color: white;
+}
+
+.not-found-add:hover {
+  background-color: var(--color-E);
+  border: 0.2em solid var(--color-C);
+  text-decoration: none;
+  color: var(--color-C);
+}
+
+#not-found-back {
+  margin-top: 8em;
+  background-color: var(--color-C);
+  border: 0.2em solid var(--color-C);
+  border-radius: 0.3em;
+  padding: 0.7em 1.2em 0.7em 0em;
+  text-decoration: none;
+  color: white;
+}
+
+#not-found-back:hover {
+  background-color: var(--color-E);
+  border: 0.2em solid var(--color-C);
+  text-decoration: none;
+  color: var(--color-C);
 }
 
 
