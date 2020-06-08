@@ -3,9 +3,7 @@ var router = express.Router();
 const passport = require('passport');
 var usersCtrl = require('../controllers/users');
 
-/* GET home page. */
 router.get('/', usersCtrl.index);
-
 
 router.get('/auth/google', passport.authenticate(
   'google',

@@ -13,14 +13,11 @@ module.exports = {
 function index(req, res){
     Restaurant.find({}, function(err, restaurants) {
         res.render('restaurants', { restaurants });
-    })
+    });
 }
 
 function search(req, res){
-    console.log("req.body: " + req.body);
-    console.log("req.body.search: " + req.body.search);
     let reqName = req.body.search;
-    console.log("reqName: " + reqName);
     Restaurant.findOne({ name: new RegExp('^'+ reqName + '$', "i") })
     .populate({
         path: 'tacos',
@@ -36,13 +33,12 @@ function search(req, res){
             res.render('/restaurants/notfound');
         } else {
             if (restaurant) {
-                console.log(restaurant);
                 res.redirect(`/restaurants/${restaurant._id}`);
             } else {
                 res.redirect('/restaurants/notfound');
             } 
         }
-    })
+    });
 }
 
 function notFound(req, res){
@@ -64,10 +60,9 @@ function show(req, res) {
             console.log("error:" + err);
             res.render('restaurants/');
         } else {
-            console.log("restaurant:" + restaurant);
             res.render('restaurants/show', { restaurant });
         }
-    })
+    });
 }
 
 function newRestaurant(req, res) {

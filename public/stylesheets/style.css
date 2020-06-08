@@ -4,7 +4,6 @@
   --color-C: #303C6C;
   --color-D: #B4DFE5;
   --color-E: #E8EBF7;
-
 }
 
 body {
@@ -13,6 +12,7 @@ body {
 }
 
 /*******NAVIGATION BAR*********/
+
 nav {
   font-size: 2em;
   padding: 1em;
@@ -112,7 +112,6 @@ nav > li > a:hover {
   background: white;
   color: var(--color-B);
   text-decoration: none;
-
 }
 
 .index-banner-info {
@@ -132,7 +131,6 @@ nav > li > a:hover {
   max-height: 8em;
   opacity: 0.8;
   margin-right: 2em;
-
 }
 
 .restaurant-list {
@@ -180,7 +178,6 @@ nav > li > a:hover {
   background: var(--color-E);
   color: var(--color-C)
 }
-
 
 /*******RESTAURANT SHOW PAGE*******/
 
@@ -359,7 +356,7 @@ nav > li > a:hover {
 }
 
 .content-wrap {
-  padding-bottom: 7em;    /* Footer height */
+  padding-bottom: 7em;
 }
 
 /******NOT FOUND SEARCH PAGE*******/
@@ -407,22 +404,21 @@ nav > li > a:hover {
   color: var(--color-C);
 }
 
+/******FOOTER******/
 
 footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 4em;
-    text-align: center;
-    background-color: var(--color-C);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 3em;
-    color: white;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 4em;
+  text-align: center;
+  background-color: var(--color-C);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3em;
+  color: white;
 }
-
-/******FOOTER******/
 
 footer > li {
   list-style: none;

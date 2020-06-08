@@ -22,8 +22,8 @@ function create(req, res) {
             console.log(err);
             return res.redirect('/restaurants');
         }
-    })
-   Taco.findByIdAndUpdate(req.params.tacoid, {$push: {'reviews': review}}, function(err, taco) {
+    });
+    Taco.findByIdAndUpdate(req.params.tacoid, {$push: {'reviews': review}}, function(err, taco) {
        if (err) {
            console.log(err);
            res.redirect(`/restaurants/${req.params.id}`);
@@ -37,7 +37,7 @@ function create(req, res) {
                 } else {
                     res.redirect(`/restaurants/${req.params.id}`);
                 }
-            })
+            });
        }
    }); 
 }
@@ -51,13 +51,11 @@ function edit(req, res) {
             console.log(err);
             res.redirect(`/restaurants/${req.params.id}`);
         } else {
-            //let textValue = review.comment;
             res.render(`reviews/edit`, { restaurantId: req.params.id, tacoId: req.params.tacoid, reviewId: req.params.reviewid, review });
             //
         }
-    })
-}
-   
+    });
+} 
 
 function update(req, res){
     Review.findByIdAndUpdate(req.params.reviewid, {comment: req.body.comment}, function(err) {
@@ -67,7 +65,7 @@ function update(req, res){
         } else {
             res.redirect(`/restaurants/${req.params.id}`);
         }
-    })
+    });
 }
 
 function deleteReview(req, res) {
