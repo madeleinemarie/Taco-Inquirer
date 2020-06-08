@@ -18,7 +18,7 @@
         <% console.log(t) %>
         <div class='taco-wrapper'>
             <div class='taco-header'>
-                <img src='/images/tacoplaceholder.jpg' class='taco-img'>
+                <img src='/images/sandwich.svg' class='taco-img'>
                 <div class='taco-info'>
                     <h3><%= t.name %></h3>
                     <h4><%= t.description %></h4>
@@ -34,8 +34,8 @@
                             <h4><%= r.comment %></h4>
                             <br>
                             <% if (r.author._id.equals(user && user._id)) { %>
-                                <form action="/restaurants/<%= restaurant._id %>/tacos/<%= t._id %>/reviews/<%= r._id %>?_method=DELETE" method="POST" class='inline-button delete-button'><button type="submit" class='svg-btn'><img src='/images/trash.svg'></button></form>
                                 <form action="/restaurants/<%= restaurant._id %>/tacos/<%= t._id %>/reviews/<%= r._id %>/edit" method="GET"  class='inline-button edit-button'><button type="submit" class='svg-btn'><img src='/images/pencil.svg'></button></form>
+                                <form action="/restaurants/<%= restaurant._id %>/tacos/<%= t._id %>/reviews/<%= r._id %>?_method=DELETE" method="POST" class='inline-button delete-button'><button type="submit" class='svg-btn'><img src='/images/trash.svg'></button></form>
                             <% } %>
                         <% } %>
                         </div>
