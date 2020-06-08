@@ -4,7 +4,7 @@
       <div class='index-banner container'>
         <div class='index-banner-info col-sm-8'>
           <img id='info-img' src='/images/review.svg'>
-          <h4>No more asking "what's good here?" -- Taco Inquirer is a user-driven guide to the best tacos in San Diego. Select a restaurant below to see reviews, or log in with Google to add your own.</h4>
+          <h4>No more asking "what's good here?" &#8211; Taco Inquirer is a user-driven guide to the best tacos in San Diego. Select a restaurant below to see reviews, or log in with Google to add your own.</h4>
         </div>
         <div class='index-banner-add col-sm-4'>
           <h3 id='index-banner-add-msg'>Don't see your favorite taco place here?<br><b>Share it with us!</b></h3>
@@ -20,7 +20,7 @@
         <h4><%= r.neighborhood %></h4>
         <% if (r.tacos.length > 1) { %>
           <div class='restaurant-details'>
-            <p><%= r.tacos.length %> reviewed tacos</p>
+            <p><%= r.tacos.length %> tacos added</p>
             <a class='see-tacos-btn' href='/restaurants/<%= r._id %>'>See Tacos</a>
           </div>
         <% } else if (r.tacos.length == 0) { %>
@@ -30,7 +30,7 @@
           </div>
          <% } else { %>
           <div class='restaurant-details'>
-            <p>1 reviewed taco</p>
+            <p>1 taco added</p>
             <a class='see-tacos-btn' href='/restaurants/<%= r._id %>'>See Tacos</a>
           </div>
         <% } %>
