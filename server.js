@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var methodOverride = require('method-override');
+var bodyParser = require('body-parser')
 var session = require('express-session');
 var passport = require('passport');
 
@@ -19,6 +20,10 @@ const reviewsRouter = require('./routes/reviews');
 
 var app = express();
 
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -26,6 +31,7 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
 app.use(cookieParser());
 app.use(session({
   secret: 'yum!',
@@ -34,6 +40,7 @@ app.use(session({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
+
 
 app.use(passport.initialize());
 app.use(passport.session());
