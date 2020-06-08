@@ -5,9 +5,9 @@
 
  [Trello Board](https://trello.com/b/KSeNKXCH/taco-guide)
 
-![screenshot of application](https://imgur.com/nEtRr7U)
+![screenshot of application](https://i.imgur.com/tPZWYmm.png)
 
-![second screenshot of application](https://imgur.com/tPZWYmm)
+![second screenshot of application](https://i.imgur.com/nEtRr7U.png)
 
 #### Technologies Used:
 - Node.js
