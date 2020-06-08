@@ -14,7 +14,13 @@
 <body>
     <nav class='navbar-fixed-top'>
         <a href='/'>Taco Inquirer</a>  
+        
         <li>
+            <form class="form-inline search-bar-form" method="POST" action='/restaurants/search'>
+                <div class="md-form search-bar-form search-bar">
+                  <input class="form-control" type="text" name="search" placeholder="Search Restaurants" aria-label="Search">
+                </div>
+            </form>
         <% if (user) { %>
             <h4>Hi, <%= user.name.substring(0, user.name.indexOf(' '))%>!</h4>
             <a href="/logout">Log Out</a>      
