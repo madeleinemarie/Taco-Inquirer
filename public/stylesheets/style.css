@@ -44,6 +44,16 @@ nav > a {
   font-family: 'Poppins', sans-serif;
 }
 
+nav > a:hover {
+  color: white;
+  text-decoration: none;
+}
+
+nav > li > a:hover {
+  color: white;
+  text-decoration: none;
+}
+
 .search-bar-form {
   display: inline;
 }
@@ -167,7 +177,7 @@ nav > a {
 .see-tacos-btn:hover {
   text-decoration: none;
   border: 0.2em solid var(--color-C);
-  background: white;
+  background: var(--color-E);
   color: var(--color-C)
 }
 
@@ -411,6 +421,8 @@ footer {
     margin-top: 3em;
     color: white;
 }
+
+/******FOOTER******/
 
 footer > li {
   list-style: none;
