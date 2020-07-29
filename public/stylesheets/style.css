@@ -126,6 +126,7 @@ nav > li > a:hover {
   align-items: center;
 }
 
+
 #info-img {
   max-width: 8em;
   max-height: 8em;
@@ -435,5 +436,28 @@ footer > li > a{
 footer > li > a:hover{
   text-decoration: none;
   color: white;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .index-banner-info {
+    font-size: 0.3em;
+    min-height: 40em;
+  }
+  .index-banner-add {
+    height: 12em;
+  }
+  #index-banner-add-msg {
+    font-size: 1.1em;
+
+  }
+  .add-restaurant-btn {
+    font-size: 1em;
+  }
+  .restaurant-row > h4 {
+    font-size: 1em;
+    padding-left: 0.7em;
+    vertical-align: 60%;
+  }
 }
 
